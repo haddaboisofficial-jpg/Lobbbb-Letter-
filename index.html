@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:'Segoe UI',sans-serif;
+}
+
+
+/* Envelope */
+.envelope{
+  position:relative;
+  width:280px;
+  height:180px;
+  background:#f5c6cb;
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+
+/* Top flap */
+.flap{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#f1aeb5;
+  clip-path:polygon(0 0,100% 0,50% 55%);
+  transform-origin:top;
+  transition:transform 1s ease;
+  z-index:3;
+}
+
+
+/* Letter */
+.letter{
+  position:absolute;
+  top:10px;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  background:white;
+  border-radius:10px;
+  transform:translateY(80px) scale(0.9);
+  opacity:0;
+  transition:all 1s ease;
+  z-index:1;
+  overflow:hidden;
+}
+
+
+/* Image */
+.letter img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+/* Open animation */
+.envelope.open .flap{
+  transform:rotateX(180deg);
+}
+.envelope.open .letter{
+  transform:translateY(-140px) scale(1);
+  opacity:1;
+}
+
+
+/* Text hint */
+.tap{
+  position:absolute;
+  bottom:-40px;
+  width:100%;
+  text-align:center;
+  color:white;
+  font-size:14px;
+  opacity:0.9;
+}
+</style>
+</head>
+
+
+<body>
+
+
+<div class="envelope" onclick="this.classList.toggle('open')">
+  <div class="flap"></div>
+
+
+  <div class="letter">
+    <img src="letter.jpg" alt="Love Letter">
+  </div>
+
+
+  <div class="tap">Tap to open 💌</div>
+</div>
+
+
+</body>
+</html>
